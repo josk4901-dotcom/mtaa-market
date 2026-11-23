@@ -1,21 +1,16 @@
 function Footer() {
   return (
-    <footer className="footer">
-      <div className="footer-content">
-        <h2 className="footer-logo">soko yetu.</h2>
+    <footer className="bg-gray-900 text-white py-8 mt-16">
+      <div className="max-w-7xl mx-auto px-6 text-center">
+        <h2 className="text-xl font-bold">Mtaa Market</h2>
 
-        <p className="footer-tagline">
-          Many sellers. More to discover.
+        <p className="text-gray-400 mt-2">
+          Your trusted online marketplace in Kenya.
         </p>
-      </div>
 
-      <div className="footer-bottom">
-        <div className="footer-links">
-          <a href="/terms">Terms & Support</a>
-          <a href="/privacy">Privacy Policy</a>
-        </div>
-
-        <p>Designed with Canva</p>
+        <p className="text-gray-500 text-sm mt-5">
+          © 2026 Mtaa Market. All rights reserved.
+        </p>
       </div>
     </footer>
   );

@@ -1,30 +1,34 @@
-import { getPosts } from "../api";
-import { useEffect, useState } from "react";
+import ProductCard from "../components/ProductCard";
+import products from "../data/products";
+import SEO from "../components/SEO";
 
-export default function Products() {
-    const [posts, setPosts] = useState([]);
-    const [loading, setLoading] = useState(true);
+function Products({ addToCart }) {
+  return (
+    <>
+      <SEO
+        title="Products"
+        description="Explore electronics, fashion and everyday products at affordable prices from Soko Yetu Kenya."
+      />
 
-    useEffect(() => {
-        const fetchPosts = async () => {
-            setLoading(true);
-            const data = await getPosts();
-            setPosts(data);
-            setLoading(false);
-        };
-        fetchPosts();
-    }, []);
+      <section className="max-w-7xl mx-auto px-6 py-16">
+        <h1 className="text-3xl font-bold mb-3">Our Products</h1>
 
-    if (loading) return <div>Loading...</div>;
+        <p className="text-gray-500 mb-8">
+          Explore our collection of quality products.
+        </p>
 
-    return (
-        <div className="products-container">
-            {posts.map((post) => (
-                <div key={post.id} className="product-card">
-                    <h3>{post.title}</h3>
-                    <p>{post.author}</p>
-                </div>
-            ))}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {products.map((product) => (
+            <ProductCard
+              key={product.id}
+              product={product}
+              addToCart={addToCart}
+            />
+          ))}
         </div>
-    );
+      </section>
+    </>
+  );
 }
+
+export default Products;
